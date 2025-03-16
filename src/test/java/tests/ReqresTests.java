@@ -6,6 +6,7 @@ import models.pojo.UserResponseModel;
 import models.pojo.UserFullResponseModel;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -14,6 +15,7 @@ import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Tag("simple")
 public class ReqresTests {
 
     @BeforeAll
