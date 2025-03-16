@@ -1,9 +1,9 @@
 package tests;
 
 import io.restassured.RestAssured;
-import models.pojo.UserRequestModel;
-import models.pojo.UserResponseModel;
-import models.pojo.UserFullResponseModel;
+import models.lombok.UserRequestModel;
+import models.lombok.UserResponseModel;
+import models.lombok.UserFullResponseModel;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
