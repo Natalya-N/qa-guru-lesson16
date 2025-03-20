@@ -1,9 +1,9 @@
 package tests;
 
 import io.restassured.RestAssured;
-import models.lombok.UserRequestModel;
-import models.lombok.UserResponseModel;
-import models.lombok.UserFullResponseModel;
+import models.UserRequestModel;
+import models.UserResponseModel;
+import models.UserFullResponseModel;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -42,7 +42,7 @@ public class ReqresTests {
                         .when()
                         .post("/users")
                         .then()
-                        .spec(statusCode201Spec)
+                        .spec(getBaseResponseSpec(201))
                         .extract().as(UserResponseModel.class));
 
         step("Проверить, что в ответе вернулись указанные в запросе данные", () -> {
@@ -63,7 +63,7 @@ public class ReqresTests {
                         .when()
                         .get("/users/2")
                         .then()
-                        .spec(statusCode200Spec)
+                        .spec(getBaseResponseSpec(200))
                         .extract().as(UserFullResponseModel.class));
 
         step("Проверить, что в ответе вернулись данные о пользователе", () -> {
@@ -94,7 +94,7 @@ public class ReqresTests {
                         .when()
                         .put("/users/95")
                         .then()
-                        .spec(statusCode200Spec)
+                        .spec(getBaseResponseSpec(200))
                         .extract().as(UserResponseModel.class));
 
         step("Проверить, что в ответе вернулись обновленные данные", () -> {
@@ -114,7 +114,7 @@ public class ReqresTests {
                         .when()
                         .delete("/users/2")
                         .then()
-                        .spec(statusCode204Spec));
+                        .spec(getBaseResponseSpec(204)));
     }
 
     @Test
@@ -127,7 +127,7 @@ public class ReqresTests {
                         .when()
                         .get("/users/23")
                         .then()
-                        .spec(statusCode404Spec));
+                        .spec(getBaseResponseSpec(404)));
     }
 
 }

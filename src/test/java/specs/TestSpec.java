@@ -1,7 +1,6 @@
 package specs;
 
 
-import helpers.CustomAllureListener;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
@@ -17,25 +16,12 @@ public class TestSpec {
             .log().all()
             .contentType(ContentType.JSON);
 
-    public static ResponseSpecification statusCode200Spec = new ResponseSpecBuilder()
-            .expectStatusCode(200)
-            .log(ALL)
-            .build();
+    public static ResponseSpecification getBaseResponseSpec(int code) {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(code)
+                .log(ALL)
+                .build();
+    }
 
-    public static ResponseSpecification statusCode201Spec = new ResponseSpecBuilder()
-            .expectStatusCode(201)
-            .log(ALL)
-            .build();
-
-
-    public static ResponseSpecification statusCode204Spec = new ResponseSpecBuilder()
-            .expectStatusCode(204)
-            .log(ALL)
-            .build();
-
-    public static ResponseSpecification statusCode404Spec = new ResponseSpecBuilder()
-            .expectStatusCode(404)
-            .log(ALL)
-            .build();
 }
 
